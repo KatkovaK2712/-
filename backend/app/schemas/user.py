@@ -1,25 +1,35 @@
-from pydantic import BaseModel, EmailStr
-from datetime import datetime
+from pydantic import BaseModel, EmailStr, validator
 from typing import Optional
+from datetime import datetime
 
-# Базовая схема (общие поля)
+
 class UserBase(BaseModel):
     email: EmailStr
     main_currency: Optional[str] = "RUB"
 
-# Для создания пользователя (регистрация)
+
 class UserCreate(UserBase):
     password: str
 
-# Для ответа (то, что отдаем клиенту)
-class UserResponse(UserBase):
-    id: int
-    created_at: datetime
-    
-    class Config:
-        from_attributes = True  # для работы с SQLAlchemy моделями
+    @validator('password')
+    def validate_password_length(cls, v):
+        password_bytes = v.encode('utf-8')
+        if len(password_bytes) > 72:
+            raise ValueError('Пароль слишком длинный. Максимум 72 символа')
+        if len(v) < 6:
+            raise ValueError('Пароль слишком короткий. Минимум 6 символов')
+        return v
 
-# Для обновления
+
 class UserUpdate(BaseModel):
     email: Optional[EmailStr] = None
     main_currency: Optional[str] = None
+    password: Optional[str] = None
+
+
+class UserResponse(UserBase):
+    id: int
+    created_at: datetime
+
+    class Config:
+        from_attributes = True

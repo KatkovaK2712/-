@@ -1,3 +1,4 @@
+from ..db.database import Base
 from .user import User
 from .account import Account
 from .category import Category
@@ -9,7 +10,7 @@ from .regular_payment import RegularPayment
 
 __all__ = [
     "User",
-    "Account", 
+    "Account",
     "Category",
     "Transaction",
     "Budget",
