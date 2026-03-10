@@ -1,4 +1,19 @@
-﻿# Flutter/Dart
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+ENV/
+env/
+poetry.lock
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Flutter/Dart
 .dart_tool/
 .idea/
 .gradle/
@@ -19,10 +34,9 @@ windows/flutter/ephemeral/
 .packages
 .flutter-plugins
 .flutter-plugins-dependencies
-.dart_tool/
 .pub-cache/
 .pub/
-build/
+.cocoapods/
 
 # IDE
 .vscode/
@@ -34,7 +48,6 @@ build/
 # Mac
 .DS_Store
 
-# Android Studio
-*.iml
-.gradle/
-local.properties
+# Проект
+*.bak
+*.sqlite3
