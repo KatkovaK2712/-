@@ -1,0 +1,40 @@
+﻿# Flutter/Dart
+.dart_tool/
+.idea/
+.gradle/
+*.iml
+*.lock
+*.log
+*.swp
+build/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Pods/
+linux/flutter/ephemeral/
+macos/flutter/ephemeral/
+windows/flutter/ephemeral/
+.android/
+.ios/
+.metadata
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+.dart_tool/
+.pub-cache/
+.pub/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Mac
+.DS_Store
+
+# Android Studio
+*.iml
+.gradle/
+local.properties
